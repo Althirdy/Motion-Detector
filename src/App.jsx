@@ -17,12 +17,11 @@ function App() {
 
     return () => unsubscribe();
   }, []);
-  
-// Customize the toast inside useEffect
-useEffect(() => {
-  if (sensorValue > 1000) {
-    toast.custom(
-      (t) => (
+
+  // Customize the toast inside useEffect
+  useEffect(() => {
+    if (sensorValue > 1000) {
+      toast.custom((t) => (
         <div
           style={{
             display: "flex",
@@ -39,14 +38,13 @@ useEffect(() => {
           <strong>⚠️ WARNING!</strong>
           <span style={{ marginLeft: "8px" }}>Gas leak detected!</span>
         </div>
-      )
-    );
-  }
-}, [sensorValue]);
+      ));
+    }
+  }, [sensorValue]);
   return (
     <div className="max-w-screen-lg mx-auto flex items-center min-h-screen justify-center">
-      <div>
-        <h1 className="text-4xl font-bold text-gray-900">
+      <div className="flex flex-col items-center p-4">
+        <h1 className="text-4xl font-bold text-gray-900 text-center">
           Gas Leak Detector Simple IoT
         </h1>
         <p
